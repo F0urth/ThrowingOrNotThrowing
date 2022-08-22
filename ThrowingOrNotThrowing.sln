@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Throwing", "Throwing\Throwing.csproj", "{72FC96B2-44E9-4674-BCA8-B941F629CA97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotThrowing", "NotThrowing\NotThrowing.csproj", "{EE4CDE60-8B42-4F7C-8C05-743D05E21C10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72FC96B2-44E9-4674-BCA8-B941F629CA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72FC96B2-44E9-4674-BCA8-B941F629CA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72FC96B2-44E9-4674-BCA8-B941F629CA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72FC96B2-44E9-4674-BCA8-B941F629CA97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE4CDE60-8B42-4F7C-8C05-743D05E21C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE4CDE60-8B42-4F7C-8C05-743D05E21C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE4CDE60-8B42-4F7C-8C05-743D05E21C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE4CDE60-8B42-4F7C-8C05-743D05E21C10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
