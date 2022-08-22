@@ -1,4 +1,5 @@
-using NotThrowing.Services;
+using Throwing.Middleware;
+using Throwing.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,10 +20,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
+app.UseMiddleware<ValidationMiddleware>();
 
 app.Run();

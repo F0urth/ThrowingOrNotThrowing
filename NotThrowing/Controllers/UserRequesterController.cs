@@ -4,13 +4,22 @@ namespace NotThrowing.Controllers;
 
 using Models;
 using Services;
+using Validators;
 
+[Route("/user")]
 public class UserRequesterController : ControllerBase
 {
-    public async Task<IActionResult> Get([FromServices] IUserRequester userRequester, [FromBody] InputUser inputUser)
+    [HttpPost("getUser")]
+    public async Task<IActionResult> Post(
+        [FromServices] IUserRequester userRequester,
+        [FromBody] InputUser inputUser)
     {
-        return await userRequester.MakeRequest(inputUser)
-            ? Ok()
-            : NotFound();
+        var makeRequest = await userRequester.MakeRequest(inputUser);
+
+        return makeRequest.Match<IActionResult>(e => e ? Ok() : NotFound(),
+            ex => new ObjectResult(((ValidationDataException)ex).Failures.Select(m => m.ErrorMessage))
+        {
+            StatusCode = 418
+        });
     }
 }

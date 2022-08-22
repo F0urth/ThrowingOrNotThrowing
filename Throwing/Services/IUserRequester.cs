@@ -1,8 +1,9 @@
-﻿namespace NotThrowing.Services;
+﻿namespace Throwing.Services;
 
 using FluentValidation;
 using Models;
 using Octokit;
+using Throwing.Middleware;
 using Validators;
 
 public interface IUserRequester
@@ -23,7 +24,13 @@ class UserRequester : IUserRequester
     
     public async Task<bool> MakeRequest(InputUser user)
     {
-        await _validator.ValidateAsync(user);
+        var validationResult = await _validator.ValidateAsync(user);
+
+        if (!validationResult.IsValid)
+        {
+            throw new ValidationDataException(validationResult.Errors);
+        }
+        
         var userRes = await _gitHubClient.User.Get(user.GithubUsername);
         return userRes is null;
     }
